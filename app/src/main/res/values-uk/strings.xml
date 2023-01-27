@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">Task2</string>
+    <string name="profile_person_name">Інна Держко</string>
+    <string name="profile_career">Graphic designer</string>
+    <string name="profile_home_address">Б. Хмельницького 44</string>
+    <string name="profile_contacts">Контакти</string>
+    <string name="profile_edit">Змінити профіль</string>
+    <string name="login_greetings">Давайте познайомимось</string>
+    <string name="login_greetings_2">Заповніть данні та переходіть до додатку</string>
+    <string name="login_profile_settings">Налаштування</string>
+    <string name="login_fill_out_go_settings">Зайдіть в налаштування і заповніть профіль</string>
+    <string name="login_email_hint">Електронна скриня</string>
+    <string name="login_password_hint">Пароль</string>
+    <string name="login_remember_me">Запам\'ятати мене</string>
+    <string name="login_google">Google</string>
+    <string name="login_or">або</string>
+    <string name="login_register">Реєстрація</string>
+    <string name="login_by_clicking_register_you_agree_to_our_terms_n_and_conditions">Натиснувши «Реєстрація», ви погоджуєтеся з нашими Умовами</string>
+    <string name="login_don_t_have_account">Немає облікового запису?</string>
+    <string name="login_sign_up">Увійти</string>
+    <string name="login_error_password_few_symbols">Мін 5 символів</string>
+    <string name="login_error_password_number">Хоча б 1 цифра</string>
+    <string name="login_error_email_valid_email">Введіть коректну е-скриньку</string>
+    <string name="addContact_hint_username"><font size="34">Логін</font></string>
+    <string name="addContact_hint_career">Професія</string>
+    <string name="addContact_hint_email">Е-Скриня</string>
+    <string name="addContact_hint_phone">Телефон</string>
+    <string name="addContact_hint_address">Адреса</string>
+    <string name="addContact_hint_DareOfBirth">Дана народження</string>
+    <string name="addContact_bSave_text">Зберегти</string>
+    <string name="contacts_toast_noInformation">Товариш без імені(</string>
+    <string name="contacts_tvAddContact">Додади контакт</string>
+    <string name="contacts_tvContacts">Контакти</string>
+    <string name="contacts_sbRemoved">%1$s видалений</string>
+</resources>

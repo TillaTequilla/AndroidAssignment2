@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivContactBorder"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/RecycleViewContact_border_height"
+        android:layout_marginHorizontal="@dimen/RecycleViewContact_border_marginHorizontal"
+        android:layout_marginVertical="@dimen/RecycleViewContact_border_vertical"
+        android:src="@drawable/user_border"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/ivContactPhoto"
+        android:layout_width="@dimen/RecycleViewContact_ivContactPhoto_size"
+        android:layout_height="@dimen/RecycleViewContact_ivContactPhoto_size"
+        android:layout_marginVertical="@dimen/RecycleViewContact_ivContactPhoto_marginVertical"
+        android:layout_marginStart="@dimen/RecycleViewContact_ivContactPhoto_marginStart"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/icon_default_photo"
+        app:layout_constraintBottom_toBottomOf="@id/ivContactBorder"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="@id/ivContactBorder"
+        app:layout_constraintTop_toTopOf="@id/ivContactBorder" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvContact_Name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:fontFamily="@font/semi_bold"
+        android:text="@string/recyclerView_itemName"
+        android:textColor="@color/black"
+        android:textSize="@dimen/RecycleViewContact_tvName_textSize"
+        app:layout_constraintBottom_toTopOf="@id/tvContact_career"
+        app:layout_constraintStart_toEndOf="@id/ivContactPhoto"
+        app:layout_constraintTop_toTopOf="@id/ivContactBorder"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvContact_career"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/semi_bold"
+        android:text="@string/recyclerView_itemCareer"
+        app:layout_constraintBottom_toBottomOf="@id/ivContactBorder"
+        app:layout_constraintStart_toStartOf="@id/tvContact_Name"
+        app:layout_constraintTop_toBottomOf="@id/tvContact_Name" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/IvRemoveContact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/RecycleViewContact_ivRemoveContact_marginEnd"
+        app:layout_constraintBottom_toBottomOf="@id/ivContactBorder"
+        app:layout_constraintEnd_toEndOf="@id/ivContactBorder"
+        app:layout_constraintTop_toTopOf="@id/ivContactBorder"
+        app:srcCompat="@drawable/icon_trash" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

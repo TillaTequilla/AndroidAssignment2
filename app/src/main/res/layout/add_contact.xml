@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_addContact_horizontal_top"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.30" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_addContact_horizontal_bot"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.90" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/bSaveContact"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/gl_addContact_horizontal_top">
+
+        <ScrollView
+            android:id="@+id/svInformation"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginHorizontal="@dimen/DialogFragment_svInformation_marginHorizontal"
+            android:layout_marginTop="@dimen/DialogFragment_svInformation_marginTop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:verticalScrollbarPosition="right">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilUsername_new"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/addContact_hint_username"
+                    android:theme="@style/ThemeOverlay.App.TextInputLayoutForAddContact"
+                    app:expandedHintEnabled="false"
+                    app:hintTextAppearance="@style/TextLabel">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tiedUsername_new"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@android:color/transparent"
+                        android:maxLines="1"
+                        android:textColor="@color/black" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilCareer_new"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/DialogFragment_tiIOfInformation_marginTop"
+                    android:hint="@string/addContact_hint_career"
+                    android:theme="@style/ThemeOverlay.App.TextInputLayoutForAddContact"
+                    app:expandedHintEnabled="false"
+                    app:hintTextAppearance="@style/TextLabel">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tiedCareer_new"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@android:color/transparent"
+                        android:maxLines="1"
+                        android:textColor="@color/black" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilEmail_new"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/DialogFragment_tiIOfInformation_marginTop"
+                    android:hint="@string/addContact_hint_email"
+                    android:theme="@style/ThemeOverlay.App.TextInputLayoutForAddContact"
+                    app:expandedHintEnabled="false"
+                    app:hintTextAppearance="@style/TextLabel">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tiedEmail_new"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@android:color/transparent"
+                        android:inputType="textEmailAddress"
+                        android:maxLines="1"
+                        android:textColor="@color/black" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilPhone_new"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/DialogFragment_tiIOfInformation_marginTop"
+                    android:hint="@string/addContact_hint_phone"
+                    android:theme="@style/ThemeOverlay.App.TextInputLayoutForAddContact"
+                    app:expandedHintEnabled="false"
+                    app:hintTextAppearance="@style/TextLabel">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tiedPhone_new"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@android:color/transparent"
+                        android:maxLines="1"
+                        android:textColor="@color/black" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/DialogFragment_tiIOfInformation_marginTop"
+                    android:hint="@string/addContact_hint_address"
+                    android:theme="@style/ThemeOverlay.App.TextInputLayoutForAddContact"
+                    app:expandedHintEnabled="false"
+                    app:hintTextAppearance="@style/TextLabel">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tiedAddress_new"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@android:color/transparent"
+                        android:maxLines="1"
+                        android:textColor="@color/black" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilDateOfBirth_new"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/DialogFragment_tiIOfInformation_marginTop"
+                    android:hint="@string/addContact_hint_DareOfBirth"
+                    android:theme="@style/ThemeOverlay.App.TextInputLayoutForAddContact"
+                    app:expandedHintEnabled="false"
+                    app:hintTextAppearance="@style/TextLabel">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/tiedDateOfBirth_new"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="@android:color/transparent"
+                        android:maxLines="1"
+                        android:textColor="@color/black" />
+                </com.google.android.material.textfield.TextInputLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clPhoto_new"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/profile_background"
+        app:layout_constraintBottom_toBottomOf="@id/gl_addContact_horizontal_top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivAddContact_photo"
+            android:layout_width="@dimen/DialogFragment_ivContactPhoto_size"
+            android:layout_height="@dimen/DialogFragment_ivContactPhoto_size"
+            android:src="@drawable/icon_default_photo"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivAddContact_choosePhoto"
+            android:layout_width="@dimen/DialogFragment_ivChoosePhoto_size"
+            android:layout_height="@dimen/DialogFragment_ivChoosePhoto_size"
+            android:layout_marginStart="@dimen/DialogFragment_ivChoosePhoto_marginStart"
+            app:layout_constraintBottom_toBottomOf="@id/ivAddContact_photo"
+            app:layout_constraintStart_toEndOf="@id/ivAddContact_photo"
+            app:layout_constraintTop_toTopOf="@id/ivAddContact_photo"
+            app:srcCompat="@drawable/icon_add_photo" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/bSaveContact"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/DialogFragment_bSave_height"
+        android:layout_marginBottom="@dimen/DialogFragment_bSave_marginBottom"
+        android:backgroundTint="@color/contacts_contacts"
+        android:text="@string/addContact_bSave_text"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

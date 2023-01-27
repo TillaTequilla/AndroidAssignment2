@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/profile"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/profile_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivPhotoProfile"
+            android:layout_width="@dimen/mainActivity_ivPhotoProfile_width"
+            android:layout_height="@dimen/mainActivity_ivPhotoProfile_height"
+            app:layout_constraintBottom_toBottomOf="@id/profile"
+            app:layout_constraintEnd_toEndOf="@id/profile"
+            app:layout_constraintStart_toStartOf="@id/profile"
+            app:layout_constraintTop_toTopOf="@id/profile"
+            app:layout_constraintVertical_bias="@dimen/mainActivity_ivPhotoProfile_bias"
+            app:srcCompat="@drawable/photo_default_women" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/mainActivity_tvName_marginTop"
+            android:fontFamily="@font/semi_bold"
+            android:gravity="top|start"
+            android:text="@string/profile_person_name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/mainActivity_tvName_textSize"
+            app:layout_constraintEnd_toEndOf="@id/profile"
+            app:layout_constraintStart_toStartOf="@id/profile"
+            app:layout_constraintTop_toBottomOf="@id/ivPhotoProfile" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvCareer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/mainActivity_tvCareer_marginTop"
+            android:fontFamily="@font/semi_bold"
+            android:gravity="top"
+            android:text="@string/profile_career"
+            android:textColor="@color/profile_career_address"
+            android:textSize="@dimen/mainActivity_tvCareer_textSize"
+            app:layout_constraintEnd_toEndOf="@id/profile"
+            app:layout_constraintStart_toStartOf="@id/profile"
+            app:layout_constraintTop_toBottomOf="@id/tvName" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/mainActivity_tvAddress_marginTop"
+            android:fontFamily="@font/semi_bold"
+            android:text="@string/profile_home_address"
+            android:textColor="@color/profile_career_address"
+            android:textSize="@dimen/mainActivity_tvAddress_textSize"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvCareer" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/mainActivity_tvSettings_marginStart"
+            android:layout_marginTop="@dimen/mainActivity_tvSettings_marginTop"
+            android:fontFamily="@font/semi_bold"
+            android:text="@string/login_profile_settings"
+            android:textColor="@color/white"
+            android:textSize="@dimen/mainActivity_tvSettings_textSize"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/buttons"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="@dimen/mainActivity_buttons_padding"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profile"
+        app:layout_constraintVertical_bias="0.0">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bContacts"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/mainActivity_bContacts_height"
+            android:layout_marginBottom="@dimen/mainActivity_bContacts_marginBottom"
+            android:backgroundTint="@color/contacts_contacts"
+            android:fontFamily="@font/semi_bold"
+            android:letterSpacing="0.1"
+            android:text="@string/profile_contacts"
+            android:textColor="@color/white"
+            android:textSize="@dimen/mainActivity_bContacts_textSize"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bEditProfile"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/mainActivity_bEditProfile_height"
+            android:layout_marginHorizontal="@dimen/mainActivity_bEditProfile_marginHorizontal"
+            android:layout_marginBottom="@dimen/mainActivity_bEditProfile_marginBottom"
+            android:background="@drawable/button_edit"
+            android:fontFamily="@font/semi_bold"
+            android:text="@string/profile_edit"
+            android:textAllCaps="false"
+            app:layout_constraintBottom_toTopOf="@id/bContacts"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvGo_Settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/mainActivity_tvGoSetting_marginBottom"
+            android:fontFamily="@font/semi_bold"
+            android:text="@string/login_fill_out_go_settings"
+            android:textAlignment="center"
+            android:textColor="@color/go_to_settings"
+            android:textSize="@dimen/mainActivity_tvGoSetting_textSize"
+            app:layout_constraintBottom_toTopOf="@id/bEditProfile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivFacebook"
+            android:layout_width="@dimen/mainActivity_socialMedias_size"
+            android:layout_height="@dimen/mainActivity_socialMedias_size"
+            android:layout_marginEnd="@dimen/mainActivity_socialMedias_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/ivLinkedin"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="@dimen/mainActivity_socialMedias_bias"
+            app:srcCompat="@drawable/icon_facebook" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivLinkedin"
+            android:layout_width="@dimen/mainActivity_socialMedias_size"
+            android:layout_height="@dimen/mainActivity_socialMedias_size"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="@dimen/mainActivity_socialMedias_bias"
+            app:srcCompat="@drawable/icon_linkedin" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivInstagram"
+            android:layout_width="@dimen/mainActivity_socialMedias_size"
+            android:layout_height="@dimen/mainActivity_socialMedias_size"
+            android:layout_marginStart="@dimen/mainActivity_socialMedias_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/ivLinkedin"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="@dimen/mainActivity_socialMedias_bias"
+            app:srcCompat="@drawable/icon_instagram"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
