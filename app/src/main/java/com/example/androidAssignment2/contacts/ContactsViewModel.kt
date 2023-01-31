@@ -13,6 +13,11 @@ class ContactsViewModel : ViewModel() {
 
     fun getListUsers() = contactList.value
 
+    fun deleteContact(index: Int) {
+        contactList.value=contactList.value?.toMutableList()?.apply {
+            removeAt(index)
+        }
+    }
     fun deleteContact(contact: Contact) {
         contactList.value = contactList.value?.minus(contact)
     }

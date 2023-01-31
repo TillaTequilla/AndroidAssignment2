@@ -34,8 +34,7 @@ class ContactsActivity : BaseActivity<ActivityContactsBinding>(ActivityContactsB
 
         val swipeToDeleteCallback = object : SwipeToDeleteCallback() {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
-                val holder = viewHolder as ContactsRecycleViewAdapter.Holder
-                holder.binding.IvRemoveContact.performClick()
+                deleteUser(viewHolder.absoluteAdapterPosition)
             }
         }
 
@@ -58,9 +57,15 @@ class ContactsActivity : BaseActivity<ActivityContactsBinding>(ActivityContactsB
         contactViewModel.addContact(contact)
     }
 
-    override fun deleteUser(contact: Contact, view: View) {
+    fun deleteUser(index: Int) {
+        val contact = contactViewModel.contactList.value?.get(index)!!
+        contactViewModel.deleteContact(index)
+        undoUserDeletion(binding.root, contact)
+    }
+
+    override fun deleteUser(contact: Contact) {
         contactViewModel.deleteContact(contact)
-        undoUserDeletion(view, contact)
+        undoUserDeletion(binding.root, contact)
     }
 
     private fun undoUserDeletion(view: View, contact: Contact?) {

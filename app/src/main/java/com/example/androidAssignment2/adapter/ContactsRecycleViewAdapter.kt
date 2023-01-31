@@ -12,7 +12,7 @@ import com.example.androidAssignment2.databinding.RecyclerviewContactItemBinding
 import com.example.androidAssignment2.util.DiffUtil
 
 interface ContactController {
-    fun deleteUser(contact: Contact, view: View)
+    fun deleteUser(contact: Contact)
 }
 
 class ContactsRecycleViewAdapter(private val contactController: ContactController) :
@@ -30,7 +30,7 @@ class ContactsRecycleViewAdapter(private val contactController: ContactControlle
                 Glide.with(ivContactPhoto).load(contact.imageURL).circleCrop().into(ivContactPhoto)
             }
             IvRemoveContact.setOnClickListener {
-                contactController.deleteUser(contact, itemView)
+                contactController.deleteUser(contact)
             }
         }
 
