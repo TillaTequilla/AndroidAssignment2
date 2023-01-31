@@ -17,6 +17,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.DialogFragment
 import com.example.androidAssignment2.databinding.AddContactBinding
 import com.example.androidAssignment2.contacts.Contact
+import com.example.androidAssignment2.extension.setSizePercent
 
 
 class DialogFragmentAddContact : DialogFragment() {
@@ -33,13 +34,11 @@ class DialogFragmentAddContact : DialogFragment() {
         return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        setSizePercent(85, 90)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        setSizePercent(85, 90)
 
         binding.ivAddContactChoosePhoto.setOnClickListener {
             val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
@@ -85,13 +84,4 @@ class DialogFragmentAddContact : DialogFragment() {
         )
     }
 
-    fun DialogFragment.setSizePercent(percentageWidth: Int, percentageHeight: Int) {
-        val percentWidth = percentageWidth.toFloat() / 100
-        val percentHeight = percentageHeight.toFloat() / 100
-        val dm = Resources.getSystem().displayMetrics
-        val rect = dm.run { Rect(0, 0, widthPixels, heightPixels) }
-        val width = rect.width() * percentWidth
-        val height = rect.height() * percentHeight
-        dialog?.window?.setLayout(width.toInt(), height.toInt())
-    }
 }
