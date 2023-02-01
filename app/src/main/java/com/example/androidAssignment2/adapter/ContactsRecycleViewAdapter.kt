@@ -33,8 +33,6 @@ class ContactsRecycleViewAdapter(private val contactController: ContactControlle
                 contactController.deleteUser(contact)
             }
         }
-
-
     }
 
 

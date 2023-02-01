@@ -1,28 +1,30 @@
 package com.example.androidAssignment2.contacts
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class ContactsViewModel : ViewModel() {
 
-    val contactList: MutableLiveData<List<Contact>> = MutableLiveData()
+    private val _contactList: MutableLiveData<List<Contact>> = MutableLiveData()
 
+    val contactList: LiveData<List<Contact>> = _contactList
     init {
-        contactList.value = UsersList.getUsers()
+        _contactList.value = UsersList.getUsers()
     }
 
-    fun getListUsers() = contactList.value
+    fun getListUsers() = _contactList.value
 
     fun deleteContact(index: Int) {
-        contactList.value=contactList.value?.toMutableList()?.apply {
+        _contactList.value=_contactList.value?.toMutableList()?.apply {
             removeAt(index)
         }
     }
     fun deleteContact(contact: Contact) {
-        contactList.value = contactList.value?.minus(contact)
+        _contactList.value = _contactList.value?.minus(contact)
     }
 
     fun addContact(contact: Contact) {
-        contactList.value = contactList.value?.plus(contact)
+        _contactList.value = _contactList.value?.plus(contact)
     }
 }
