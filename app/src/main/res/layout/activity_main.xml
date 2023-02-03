@@ -31,12 +31,12 @@
             android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/mainActivity_tvName_marginTop"
+            android:layout_marginTop="@dimen/indent_big"
             android:fontFamily="@font/semi_bold"
             android:gravity="top|start"
             android:text="@string/profile_person_name"
             android:textColor="@color/white"
-            android:textSize="@dimen/mainActivity_tvName_textSize"
+            android:textSize="@dimen/textSize_big"
             app:layout_constraintEnd_toEndOf="@id/profile"
             app:layout_constraintStart_toStartOf="@id/profile"
             app:layout_constraintTop_toBottomOf="@id/ivPhotoProfile" />
@@ -45,12 +45,12 @@
             android:id="@+id/tvCareer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/mainActivity_tvCareer_marginTop"
+            android:layout_marginTop="@dimen/indent_min"
             android:fontFamily="@font/semi_bold"
             android:gravity="top"
             android:text="@string/profile_career"
             android:textColor="@color/profile_career_address"
-            android:textSize="@dimen/mainActivity_tvCareer_textSize"
+            android:textSize="@dimen/textSize_normal"
             app:layout_constraintEnd_toEndOf="@id/profile"
             app:layout_constraintStart_toStartOf="@id/profile"
             app:layout_constraintTop_toBottomOf="@id/tvName" />
@@ -59,11 +59,11 @@
             android:id="@+id/tvAddress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/mainActivity_tvAddress_marginTop"
+            android:layout_marginTop="@dimen/indent_normal"
             android:fontFamily="@font/semi_bold"
             android:text="@string/profile_home_address"
             android:textColor="@color/profile_career_address"
-            android:textSize="@dimen/mainActivity_tvAddress_textSize"
+            android:textSize="@dimen/textSize_normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvCareer" />
@@ -72,8 +72,8 @@
             android:id="@+id/tvSettings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/mainActivity_tvSettings_marginStart"
-            android:layout_marginTop="@dimen/mainActivity_tvSettings_marginTop"
+            android:layout_marginStart="@dimen/indent_normal"
+            android:layout_marginTop="@dimen/indent_normal"
             android:fontFamily="@font/semi_bold"
             android:text="@string/login_profile_settings"
             android:textColor="@color/white"
@@ -102,31 +102,31 @@
             app:layout_constraintGuide_percent="0.5" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bContacts"
+            android:id="@+id/btnContacts"
             android:layout_width="match_parent"
             android:layout_height="@dimen/mainActivity_bContacts_height"
-            android:layout_marginBottom="@dimen/mainActivity_bContacts_marginBottom"
+            android:layout_marginBottom="@dimen/indent_normal"
             android:backgroundTint="@color/contacts_contacts"
             android:fontFamily="@font/semi_bold"
             android:letterSpacing="0.1"
             android:text="@string/profile_contacts"
             android:textColor="@color/white"
-            android:textSize="@dimen/mainActivity_bContacts_textSize"
+            android:textSize="@dimen/textSize_big"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bEditProfile"
+            android:id="@+id/btnEditProfile"
             android:layout_width="match_parent"
             android:layout_height="@dimen/mainActivity_bEditProfile_height"
             android:layout_marginHorizontal="@dimen/mainActivity_bEditProfile_marginHorizontal"
-            android:layout_marginBottom="@dimen/mainActivity_bEditProfile_marginBottom"
+            android:layout_marginBottom="@dimen/indent_normal"
             android:background="@drawable/button_edit"
             android:fontFamily="@font/semi_bold"
             android:text="@string/profile_edit"
             android:textAllCaps="false"
-            app:layout_constraintBottom_toTopOf="@id/bContacts"
+            app:layout_constraintBottom_toTopOf="@id/btnContacts"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toLeftOf="parent" />
 
@@ -139,8 +139,8 @@
             android:text="@string/login_fill_out_go_settings"
             android:textAlignment="center"
             android:textColor="@color/go_to_settings"
-            android:textSize="@dimen/mainActivity_tvGoSetting_textSize"
-            app:layout_constraintBottom_toTopOf="@id/bEditProfile"
+            android:textSize="@dimen/indent_normal"
+            app:layout_constraintBottom_toTopOf="@id/btnEditProfile"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
@@ -149,21 +149,19 @@
             android:layout_width="@dimen/mainActivity_socialMedias_size"
             android:layout_height="@dimen/mainActivity_socialMedias_size"
             android:layout_marginEnd="@dimen/mainActivity_socialMedias_margin"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tvGo_Settings"
             app:layout_constraintEnd_toStartOf="@id/ivLinkedin"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="@dimen/mainActivity_socialMedias_bias"
             app:srcCompat="@drawable/icon_facebook" />
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivLinkedin"
             android:layout_width="@dimen/mainActivity_socialMedias_size"
             android:layout_height="@dimen/mainActivity_socialMedias_size"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tvGo_Settings"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="@dimen/mainActivity_socialMedias_bias"
             app:srcCompat="@drawable/icon_linkedin" />
 
         <androidx.appcompat.widget.AppCompatImageView
@@ -171,10 +169,9 @@
             android:layout_width="@dimen/mainActivity_socialMedias_size"
             android:layout_height="@dimen/mainActivity_socialMedias_size"
             android:layout_marginStart="@dimen/mainActivity_socialMedias_margin"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/tvGo_Settings"
             app:layout_constraintStart_toEndOf="@id/ivLinkedin"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="@dimen/mainActivity_socialMedias_bias"
             app:srcCompat="@drawable/icon_instagram"
             />
 

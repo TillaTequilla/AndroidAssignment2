@@ -13,7 +13,7 @@ import com.example.androidAssignment2.R
 
 class AuthActivity : BaseActivity<ActivityAuthBinding>(ActivityAuthBinding::inflate) {
     private val authActivityViewModel: AuthActivityViewModel by viewModels()
-    lateinit var sharedPreferences: SharedPreferences
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         authActivityViewModel.sharedPreferences =
@@ -26,7 +26,7 @@ class AuthActivity : BaseActivity<ActivityAuthBinding>(ActivityAuthBinding::infl
 
     private fun listenerInitialization() {
         with(binding) {
-            tietPassword.doAfterTextChanged { text ->
+            etPassword.doAfterTextChanged { text ->
                 if (text!!.length < 5) {
                     tilPassword.error = getString(R.string.login_error_password_few_symbols)
                 } else if (!text.contains("\\d".toRegex())) {
@@ -34,13 +34,13 @@ class AuthActivity : BaseActivity<ActivityAuthBinding>(ActivityAuthBinding::infl
                 } else tilPassword.error = null
             }
 
-            tietEmail.doAfterTextChanged { text ->
+            etEmail.doAfterTextChanged { text ->
                 if (NameParser.validEmail(text.toString())) {
                     tilEmail.error = null
                 } else tilEmail.error = getString(R.string.login_error_email_valid_email)
             }
 
-            bRegister.setOnClickListener {
+            btnRegister.setOnClickListener {
                 if (cbRememberMe.isChecked) {
                     rememberInformation()
 
@@ -60,43 +60,52 @@ class AuthActivity : BaseActivity<ActivityAuthBinding>(ActivityAuthBinding::infl
     private fun checkForInput(): Boolean {
         with(binding) {
             return tilEmail.error == null && tilPassword.error == null
-                    && tietEmail.text!!.isNotEmpty() && tietPassword.text!!.isNotEmpty()
+                    && etEmail.text!!.isNotEmpty() && etPassword.text!!.isNotEmpty()
         }
     }
 
     private fun getPreferencesData() {
         with(binding) {
-            if (sharedPreferences.getBoolean(Constance.SHARED_PREFERENCES_REMEMBER, false)) {
-                tietEmail.setText(
-                    sharedPreferences.getString(
-                        Constance.SHARED_PREFERENCES_EMAIL,
-                        null
+            authActivityViewModel.apply {
+                if (
+                    getValueFromSharedPreferences(Constance.SHARED_PREFERENCES_REMEMBER, false)) {
+                    etEmail.setText(
+                        getValueFromSharedPreferences(
+                            Constance.SHARED_PREFERENCES_EMAIL,
+                            ""
+                        )
                     )
-                )
-                tietPassword.setText(
-                    sharedPreferences.getString(
-                        Constance.SHARED_PREFERENCES_PASSWORD,
-                        null
+                    etPassword.setText(
+                        getValueFromSharedPreferences(
+                            Constance.SHARED_PREFERENCES_PASSWORD,
+                            ""
+                        )
                     )
-                )
-                cbRememberMe.isChecked = true
+                    cbRememberMe.isChecked = true
+                }
+
             }
         }
     }
 
     private fun rememberInformation() {
         val checked = binding.cbRememberMe.isChecked
-        sharedPreferences.edit().apply {
-            putString(Constance.SHARED_PREFERENCES_EMAIL, binding.tietEmail.text.toString())
-            putString(Constance.SHARED_PREFERENCES_PASSWORD, binding.tietPassword.text.toString())
-            putBoolean(Constance.SHARED_PREFERENCES_REMEMBER, checked)
-            apply()
+        authActivityViewModel.apply {
+            putValueToSharedPreferences(
+                Constance.SHARED_PREFERENCES_EMAIL,
+                binding.etEmail.text
+            )
+            putValueToSharedPreferences(
+                Constance.SHARED_PREFERENCES_PASSWORD,
+                binding.etPassword.text
+            )
+            putValueToSharedPreferences(Constance.SHARED_PREFERENCES_REMEMBER, checked)
         }
 
     }
 
     private fun getName(): String {
-        return NameParser.getName(binding.tietEmail.text.toString())
+        return NameParser.getName(binding.etEmail.text.toString())
     }
 
 

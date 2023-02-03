@@ -11,7 +11,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         super.onCreate(savedInstanceState)
         binding.tvName.text = intent.getStringExtra(Constance.INTENT_NAME)
 
-        binding.bContacts.setOnClickListener {
+        binding.btnContacts.setOnClickListener {
             val intent = Intent(this@MainActivity, ContactsActivity::class.java)
             startActivity(intent)
         }

@@ -11,7 +11,7 @@
         android:id="@+id/loginInformation"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:padding="@dimen/authActivity_layoutPadding"
+        android:padding="@dimen/indent_normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -21,7 +21,7 @@
             android:id="@+id/tvGreetingTop"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/authActivity_topGreeting_botMargin"
+            android:layout_marginBottom="@dimen/textSize_big"
             android:fontFamily="@font/semi_bold"
             android:text="@string/login_greetings"
             android:textAlignment="center"
@@ -35,12 +35,12 @@
             android:id="@+id/tvGreetingBot"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/authActivity_botGreeting_botMargin"
+            android:layout_marginBottom="@dimen/indent_big"
             android:fontFamily="@font/semi_bold"
             android:text="@string/login_greetings_2"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="@dimen/authActivity_botGreeting_textSize"
+            android:textSize="@dimen/textSize_normal"
             app:layout_constraintBottom_toTopOf="@id/tilEmail"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -49,7 +49,6 @@
             android:id="@+id/tilEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             android:hint="@string/login_email_hint"
             android:theme="@style/ThemeOverlay.App.TextInputLayout"
             app:errorEnabled="true"
@@ -62,7 +61,7 @@
             app:layout_constraintVertical_bias="@dimen/authActivity_email_bias">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tietEmail"
+                android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@android:color/transparent"
@@ -74,20 +73,18 @@
             android:id="@+id/tilPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/authActivity_password_marginTop"
-
+            android:layout_marginTop="@dimen/indent_big"
             android:hint="@string/login_password_hint"
             android:theme="@style/ThemeOverlay.App.TextInputLayout"
             app:errorEnabled="true"
             app:expandedHintEnabled="false"
             app:hintTextAppearance="@style/TextLabel"
-
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tilEmail">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tietPassword"
+                android:id="@+id/etPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@android:color/transparent"
@@ -102,7 +99,7 @@
             android:buttonTint="@color/white"
             android:text="@string/login_remember_me"
             android:textColor="@color/alabaster"
-            android:textSize="@dimen/authActivity_checkBox_textSize"
+            android:textSize="@dimen/textSize_normal"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tilPassword" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -111,14 +108,14 @@
         android:id="@+id/loginButtons"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:padding="@dimen/authActivity_rightCl_padding"
+        android:padding="@dimen/indent_normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintWidth_percent="0.5">
 
         <com.androidAssignment2.views.GoogleButton
-            android:id="@+id/bGoogle"
+            android:id="@+id/btnGoogle"
             android:layout_width="0dp"
             android:layout_height="@dimen/authActivity_googleButton_height"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -134,22 +131,22 @@
             android:fontFamily="@font/semi_bold"
             android:text="@string/login_or"
             android:textColor="@color/white"
-            android:textSize="@dimen/authActivity_or_textSize"
+            android:textSize="@dimen/textSize_big"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bGoogle" />
+            app:layout_constraintTop_toBottomOf="@id/btnGoogle" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bRegister"
+            android:id="@+id/btnRegister"
             android:layout_width="0dp"
             android:layout_height="@dimen/authActivity_registerButton_height"
-            android:layout_marginTop="@dimen/authActivity_registerButton_marginTop_land"
+            android:layout_marginTop="@dimen/indent_min"
             android:background="@drawable/button_register"
             android:fontFamily="@font/semi_bold"
             android:text="@string/login_register"
             android:textAllCaps="true"
             android:textColor="@color/white"
-            android:textSize="@dimen/authActivity_registerButton_textSize"
+            android:textSize="@dimen/textSize_big"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tvOr" />
@@ -158,24 +155,24 @@
             android:id="@+id/tvTerms"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/authActivity_terms_height"
-            android:layout_marginTop="@dimen/authActivity_terms_marginTop"
+            android:layout_marginTop="@dimen/indent_normal"
             android:text="@string/login_by_clicking_register_you_agree_to_our_terms_n_and_conditions"
             android:textAlignment="center"
             android:textColor="@color/white"
-            android:textSize="@dimen/authActivity_terms_textSize"
+            android:textSize="@dimen/textSize_normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/bRegister" />
+            app:layout_constraintTop_toBottomOf="@id/btnRegister" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tvNoAccount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/authActivity_noAccount_marginTop"
+            android:layout_marginTop="@dimen/indent_min"
             android:fontFamily="@font/semi_bold"
             android:text="@string/login_don_t_have_account"
             android:textColor="@color/alabaster"
-            android:textSize="@dimen/authActivity_noAccount_textSize"
+            android:textSize="@dimen/textSize_normal"
             app:layout_constraintEnd_toStartOf="@id/tvSignIn"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
@@ -185,12 +182,12 @@
             android:id="@+id/tvSignIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/authActivity_signIn_marginStart"
-            android:layout_marginTop="@dimen/authActivity_signIn_marginTop"
+            android:layout_marginStart="@dimen/indent_min"
+            android:layout_marginTop="@dimen/indent_min"
             android:fontFamily="@font/semi_bold"
             android:text="@string/login_sign_up"
             android:textColor="@color/white"
-            android:textSize="@dimen/authActivity_signIn_textSize"
+            android:textSize="@dimen/textSize_normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/tvNoAccount"
             app:layout_constraintTop_toBottomOf="@id/tvTerms" />

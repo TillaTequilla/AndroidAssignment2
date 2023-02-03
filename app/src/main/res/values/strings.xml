@@ -34,4 +34,5 @@
     <string name="contacts_sbRemoved">%1$s removed</string>
     <string name="recyclerView_itemName" translatable="false">Name</string>
     <string name="recyclerView_itemCareer" translatable="false">Career</string>
+    <string name="contacts_snacbvar_cancel">Cancel</string>
 </resources>

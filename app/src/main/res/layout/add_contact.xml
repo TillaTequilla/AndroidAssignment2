@@ -19,19 +19,20 @@
         app:layout_constraintGuide_percent="0.90" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clContact_data"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/bSaveContact"
+        app:layout_constraintBottom_toTopOf="@id/btnSaveContact"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@id/gl_addContact_horizontal_top">
 
         <ScrollView
-            android:id="@+id/svInformation"
+            android:id="@+id/svContact_data"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginHorizontal="@dimen/DialogFragment_svInformation_marginHorizontal"
-            android:layout_marginTop="@dimen/DialogFragment_svInformation_marginTop"
+            android:layout_marginHorizontal="@dimen/indent_small"
+            android:layout_marginTop="@dimen/indent_min"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -39,6 +40,7 @@
 
 
             <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/llContact_data"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -54,7 +56,7 @@
                     app:hintTextAppearance="@style/TextLabel">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tiedUsername_new"
+                        android:id="@+id/etUsername_new"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@android:color/transparent"
@@ -73,7 +75,7 @@
                     app:hintTextAppearance="@style/TextLabel">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tiedCareer_new"
+                        android:id="@+id/etCareer_new"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@android:color/transparent"
@@ -92,7 +94,7 @@
                     app:hintTextAppearance="@style/TextLabel">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tiedEmail_new"
+                        android:id="@+id/etEmail_new"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@android:color/transparent"
@@ -112,7 +114,7 @@
                     app:hintTextAppearance="@style/TextLabel">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tiedPhone_new"
+                        android:id="@+id/etPhone_new"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@android:color/transparent"
@@ -131,7 +133,7 @@
                     app:hintTextAppearance="@style/TextLabel">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tiedAddress_new"
+                        android:id="@+id/etAddress_new"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@android:color/transparent"
@@ -150,7 +152,7 @@
                     app:hintTextAppearance="@style/TextLabel">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/tiedDateOfBirth_new"
+                        android:id="@+id/etDateOfBirth_new"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:backgroundTint="@android:color/transparent"
@@ -185,7 +187,7 @@
             android:id="@+id/ivAddContact_choosePhoto"
             android:layout_width="@dimen/DialogFragment_ivChoosePhoto_size"
             android:layout_height="@dimen/DialogFragment_ivChoosePhoto_size"
-            android:layout_marginStart="@dimen/DialogFragment_ivChoosePhoto_marginStart"
+            android:layout_marginStart="@dimen/indent_small"
             app:layout_constraintBottom_toBottomOf="@id/ivAddContact_photo"
             app:layout_constraintStart_toEndOf="@id/ivAddContact_photo"
             app:layout_constraintTop_toTopOf="@id/ivAddContact_photo"
@@ -194,10 +196,10 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/bSaveContact"
+        android:id="@+id/btnSaveContact"
         android:layout_width="match_parent"
         android:layout_height="@dimen/DialogFragment_bSave_height"
-        android:layout_marginBottom="@dimen/DialogFragment_bSave_marginBottom"
+        android:layout_marginBottom="@dimen/indent_normal"
         android:backgroundTint="@color/contacts_contacts"
         android:text="@string/addContact_bSave_text"
         android:textColor="@color/white"

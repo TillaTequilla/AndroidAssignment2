@@ -11,8 +11,6 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.androidAssignment2.adapter.ContactController
 import com.androidAssignment2.architecture.BaseActivity
-import com.androidAssignment2.contacts.Contact
-import com.androidAssignment2.contacts.ContactsViewModel
 import com.androidAssignment2.util.SwipeToDeleteCallback
 import com.example.androidAssignment2.R
 import com.google.android.material.snackbar.Snackbar
@@ -28,9 +26,10 @@ class ContactsActivity : BaseActivity<ActivityContactsBinding>(ActivityContactsB
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding.recyclerView.layoutManager = LinearLayoutManager(this)
-        binding.recyclerView.adapter = adapter
-
+        binding.run {
+            recyclerView.layoutManager = LinearLayoutManager(this@ContactsActivity)
+            recyclerView.adapter = adapter
+        }
 
         val swipeToDeleteCallback = object : SwipeToDeleteCallback() {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
@@ -38,9 +37,7 @@ class ContactsActivity : BaseActivity<ActivityContactsBinding>(ActivityContactsB
             }
         }
 
-
         ItemTouchHelper(swipeToDeleteCallback).attachToRecyclerView(binding.recyclerView)
-
 
         binding.tvAddContact.setOnClickListener {
             val dialog = DialogFragmentAddContact()
@@ -72,7 +69,7 @@ class ContactsActivity : BaseActivity<ActivityContactsBinding>(ActivityContactsB
             view,
             getString(R.string.contacts_sbRemoved, contact!!.name),
             Snackbar.LENGTH_LONG
-        ).setAction("Cancel") {
+        ).setAction(getString(R.string.contacts_snacbvar_cancel)) {
             contactViewModel.addContact(contact)
         }.show()
     }

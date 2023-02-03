@@ -14,7 +14,6 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.DialogFragment
 import com.example.androidAssignment2.databinding.AddContactBinding
-import com.androidAssignment2.contacts.Contact
 import com.example.androidAssignment2.R
 import com.androidAssignment2.extension.setSizePercent
 
@@ -36,13 +35,8 @@ class DialogFragmentAddContact : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         setSizePercent(85, 90)
-
-        binding.ivAddContactChoosePhoto.setOnClickListener {
-            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
-            launcher.launch(intent)
-        }
+        listenerInitialization()
 
         launcher =
             registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result: ActivityResult ->
@@ -51,20 +45,32 @@ class DialogFragmentAddContact : DialogFragment() {
                     binding.ivAddContactPhoto.setImageURI(imageUri)
                 }
             }
-        binding.bSaveContact.setOnClickListener {
-            if (binding.tiedUsernameNew.text!!.isEmpty()) {
-                Toast.makeText(
-                    context,
-                    getString(R.string.contacts_toast_noInformation),
-                    Toast.LENGTH_SHORT
-                ).show()
-            } else {
-                val contact = createContact()
-                addContactToActivity(contact)
-                dismiss()
+    }
+
+    private fun listenerInitialization() {
+        binding.run {
+
+            ivAddContactChoosePhoto.setOnClickListener {
+                val intent =
+                    Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+                launcher.launch(intent)
             }
 
+            btnSaveContact.setOnClickListener {
+                if (etUsernameNew.text!!.isEmpty()) {
+                    Toast.makeText(
+                        context,
+                        getString(R.string.contacts_toast_noInformation),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                } else {
+                    val contact = createContact()
+                    addContactToActivity(contact)
+                    dismiss()
+                }
+            }
         }
+
     }
 
     private fun addContactToActivity(contact: Contact) {
@@ -76,11 +82,11 @@ class DialogFragmentAddContact : DialogFragment() {
     }
 
     private fun createContact(): Contact {
-        binding.run{
+        binding.run {
             return Contact(
                 imageUri.toString(),
-                tiedUsernameNew.text.toString(),
-                tiedCareerNew.text.toString()
+                etUsernameNew.text.toString(),
+                etCareerNew.text.toString()
             )
         }
     }
