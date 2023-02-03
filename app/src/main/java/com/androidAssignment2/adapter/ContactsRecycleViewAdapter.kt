@@ -1,4 +1,4 @@
-package com.example.androidAssignment2.adapter
+package com.androidAssignment2.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.androidAssignment2.contacts.Contact
+import com.androidAssignment2.contacts.Contact
 import com.example.androidAssignment2.R
 import com.example.androidAssignment2.databinding.RecyclerviewContactItemBinding
-import com.example.androidAssignment2.util.DiffUtil
+import com.androidAssignment2.util.DiffUtil
 
 interface ContactController {
     fun deleteUser(contact: Contact)

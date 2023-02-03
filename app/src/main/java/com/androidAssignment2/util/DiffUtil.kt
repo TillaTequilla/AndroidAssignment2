@@ -1,7 +1,7 @@
-package com.example.androidAssignment2.util
+package com.androidAssignment2.util
 
 import androidx.recyclerview.widget.DiffUtil
-import com.example.androidAssignment2.contacts.Contact
+import com.androidAssignment2.contacts.Contact
 
 object DiffUtil : DiffUtil.ItemCallback<Contact>() {
 

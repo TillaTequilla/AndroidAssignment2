@@ -1,4 +1,4 @@
-package com.example.androidAssignment2.contacts
+package com.androidAssignment2.contacts
 
 object UsersList {
 

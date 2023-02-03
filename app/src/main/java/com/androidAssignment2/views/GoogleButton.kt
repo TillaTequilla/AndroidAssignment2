@@ -1,4 +1,4 @@
-package com.example.androidAssignment2.views
+package com.androidAssignment2.views
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -11,7 +11,7 @@ import android.view.View
 import androidx.core.content.res.ResourcesCompat
 import com.example.androidAssignment2.R
 
-@SuppressLint("Recycle","UseCompatLoadingForDrawables")
+@SuppressLint("Recycle", "UseCompatLoadingForDrawables")
 class GoogleButton @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null,
@@ -25,7 +25,7 @@ class GoogleButton @JvmOverloads constructor(
         private const val DEFAULT_ICON_SIZE = 55F
         private const val DEFAULT_BUTTON_COLOR = Color.WHITE
         private const val DEFAULT_TEXT = "GOOGLE"
-        private const val DEFAULT_ROUNDING=14F
+        private const val DEFAULT_ROUNDING = 14F
     }
 
 
@@ -37,7 +37,7 @@ class GoogleButton @JvmOverloads constructor(
     private val paint: Paint = Paint(Paint.ANTI_ALIAS_FLAG)
     private var icon_size = DEFAULT_ICON_SIZE
     private var textLenght: Float = 0F
-    private var edgeRounding=DEFAULT_ROUNDING
+    private var edgeRounding = DEFAULT_ROUNDING
 
     init {
         paint.isAntiAlias = true
@@ -46,7 +46,8 @@ class GoogleButton @JvmOverloads constructor(
             text = ta.getString(R.styleable.GoogleButton_text).toString()
             buttonColor = ta.getColor(R.styleable.GoogleButton_button_color, DEFAULT_BUTTON_COLOR)
             font = ta.getFont(R.styleable.GoogleButton_fontFamily)
-            googleIcon= (ta.getDrawable(R.styleable.GoogleButton_icon) ?:context.getDrawable(R.drawable.icon_google))!!
+            googleIcon = (ta.getDrawable(R.styleable.GoogleButton_icon)
+                ?: context.getDrawable(R.drawable.icon_google))!!
             textSize = ta.getDimension(R.styleable.GoogleButton_textSize, DEFAULT_TEXT_SIZE)
         }
     }

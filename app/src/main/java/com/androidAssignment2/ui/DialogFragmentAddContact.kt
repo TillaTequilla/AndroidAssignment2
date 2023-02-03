@@ -1,9 +1,7 @@
-package com.example.androidAssignment2
+package com.androidAssignment2.ui
 
 import android.app.Activity
 import android.content.Intent
-import android.content.res.Resources
-import android.graphics.Rect
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -16,8 +14,9 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.DialogFragment
 import com.example.androidAssignment2.databinding.AddContactBinding
-import com.example.androidAssignment2.contacts.Contact
-import com.example.androidAssignment2.extension.setSizePercent
+import com.androidAssignment2.contacts.Contact
+import com.example.androidAssignment2.R
+import com.androidAssignment2.extension.setSizePercent
 
 
 class DialogFragmentAddContact : DialogFragment() {
@@ -77,11 +76,13 @@ class DialogFragmentAddContact : DialogFragment() {
     }
 
     private fun createContact(): Contact {
-        return Contact(
-            imageUri.toString(),
-            binding.tiedUsernameNew.text.toString(),
-            binding.tiedCareerNew.text.toString()
-        )
+        binding.run{
+            return Contact(
+                imageUri.toString(),
+                tiedUsernameNew.text.toString(),
+                tiedCareerNew.text.toString()
+            )
+        }
     }
 
 }

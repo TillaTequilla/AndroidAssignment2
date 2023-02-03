@@ -1,14 +1,15 @@
-package com.example.androidAssignment2
+package com.androidAssignment2.ui
 
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.activity.viewModels
-import androidx.core.widget.doOnTextChanged
-import com.example.androidAssignment2.architecture.BaseActivity
-import com.example.androidAssignment2.constance.Constance
+import androidx.core.widget.doAfterTextChanged
+import com.androidAssignment2.architecture.BaseActivity
+import com.androidAssignment2.util.Constance
 import com.example.androidAssignment2.databinding.ActivityAuthBinding
-import com.example.androidAssignment2.util.NameParser
+import com.androidAssignment2.util.NameParser
+import com.example.androidAssignment2.R
 
 class AuthActivity : BaseActivity<ActivityAuthBinding>(ActivityAuthBinding::inflate) {
     private val authActivityViewModel: AuthActivityViewModel by viewModels()
@@ -16,7 +17,7 @@ class AuthActivity : BaseActivity<ActivityAuthBinding>(ActivityAuthBinding::infl
 
     override fun onCreate(savedInstanceState: Bundle?) {
         authActivityViewModel.sharedPreferences =
-            getSharedPreferences(Constance.SHAREDPREFERENCES_NAME, MODE_PRIVATE)
+            getSharedPreferences(Constance.SHARED_PREFERENCES_NAME, MODE_PRIVATE)
         sharedPreferences = authActivityViewModel.sharedPreferences
         super.onCreate(savedInstanceState)
         getPreferencesData()
@@ -25,20 +26,18 @@ class AuthActivity : BaseActivity<ActivityAuthBinding>(ActivityAuthBinding::infl
 
     private fun listenerInitialization() {
         with(binding) {
-            tietPassword.doOnTextChanged { text, start, before, count ->
+            tietPassword.doAfterTextChanged { text ->
                 if (text!!.length < 5) {
                     tilPassword.error = getString(R.string.login_error_password_few_symbols)
-                } else if (!text.contains("[0-9]".toRegex())) {
+                } else if (!text.contains("\\d".toRegex())) {
                     tilPassword.error = getString(R.string.login_error_password_number)
                 } else tilPassword.error = null
             }
 
-            tietEmail.doOnTextChanged { text, start, before, count ->
-                if (!text!!.contains(".+\\..+@+[A-Za-z]+\\.[A-Za-z]+".toRegex())
-                    || text.contains(" ")
-                ) {
-                    tilEmail.error = getString(R.string.login_error_email_valid_email)
-                } else tilEmail.error = null
+            tietEmail.doAfterTextChanged { text ->
+                if (NameParser.validEmail(text.toString())) {
+                    tilEmail.error = null
+                } else tilEmail.error = getString(R.string.login_error_email_valid_email)
             }
 
             bRegister.setOnClickListener {
@@ -66,30 +65,34 @@ class AuthActivity : BaseActivity<ActivityAuthBinding>(ActivityAuthBinding::infl
     }
 
     private fun getPreferencesData() {
-        if (sharedPreferences.getBoolean(Constance.SHAREDPREFERENCES_REMEMBER, false)) {
-            binding.tietEmail.setText(
-                sharedPreferences.getString(
-                    Constance.SHAREDPREFERENCES_EMAIL,
-                    null
+        with(binding) {
+            if (sharedPreferences.getBoolean(Constance.SHARED_PREFERENCES_REMEMBER, false)) {
+                tietEmail.setText(
+                    sharedPreferences.getString(
+                        Constance.SHARED_PREFERENCES_EMAIL,
+                        null
+                    )
                 )
-            )
-            binding.tietPassword.setText(
-                sharedPreferences.getString(
-                    Constance.SHAREDPREFERENCES_PASSWORD,
-                    null
+                tietPassword.setText(
+                    sharedPreferences.getString(
+                        Constance.SHARED_PREFERENCES_PASSWORD,
+                        null
+                    )
                 )
-            )
-            binding.cbRememberMe.isChecked = true
+                cbRememberMe.isChecked = true
+            }
         }
     }
 
     private fun rememberInformation() {
         val checked = binding.cbRememberMe.isChecked
-        val editor = sharedPreferences.edit()
-        editor.putString(Constance.SHAREDPREFERENCES_EMAIL, binding.tietEmail.text.toString())
-        editor.putString(Constance.SHAREDPREFERENCES_PASSWORD, binding.tietPassword.text.toString())
-        editor.putBoolean(Constance.SHAREDPREFERENCES_REMEMBER, checked)
-        editor.apply()
+        sharedPreferences.edit().apply {
+            putString(Constance.SHARED_PREFERENCES_EMAIL, binding.tietEmail.text.toString())
+            putString(Constance.SHARED_PREFERENCES_PASSWORD, binding.tietPassword.text.toString())
+            putBoolean(Constance.SHARED_PREFERENCES_REMEMBER, checked)
+            apply()
+        }
+
     }
 
     private fun getName(): String {

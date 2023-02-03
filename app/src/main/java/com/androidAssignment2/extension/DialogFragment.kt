@@ -1,4 +1,4 @@
-package com.example.androidAssignment2.extension
+package com.androidAssignment2.extension
 
 import android.content.res.Resources
 import android.graphics.Rect

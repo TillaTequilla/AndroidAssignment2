@@ -1,19 +1,20 @@
-package com.example.androidAssignment2
+package com.androidAssignment2.ui
 
 
 import android.os.Bundle
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.androidAssignment2.adapter.ContactsRecycleViewAdapter
+import com.androidAssignment2.adapter.ContactsRecycleViewAdapter
 import com.example.androidAssignment2.databinding.ActivityContactsBinding
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
-import com.example.androidAssignment2.adapter.ContactController
-import com.example.androidAssignment2.architecture.BaseActivity
-import com.example.androidAssignment2.contacts.Contact
-import com.example.androidAssignment2.contacts.ContactsViewModel
-import com.example.androidAssignment2.util.SwipeToDeleteCallback
+import com.androidAssignment2.adapter.ContactController
+import com.androidAssignment2.architecture.BaseActivity
+import com.androidAssignment2.contacts.Contact
+import com.androidAssignment2.contacts.ContactsViewModel
+import com.androidAssignment2.util.SwipeToDeleteCallback
+import com.example.androidAssignment2.R
 import com.google.android.material.snackbar.Snackbar
 
 class ContactsActivity : BaseActivity<ActivityContactsBinding>(ActivityContactsBinding::inflate),
@@ -26,7 +27,6 @@ class ContactsActivity : BaseActivity<ActivityContactsBinding>(ActivityContactsB
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-
         super.onCreate(savedInstanceState)
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         binding.recyclerView.adapter = adapter
@@ -39,8 +39,7 @@ class ContactsActivity : BaseActivity<ActivityContactsBinding>(ActivityContactsB
         }
 
 
-        val itemTouchHelper = ItemTouchHelper(swipeToDeleteCallback)
-        itemTouchHelper.attachToRecyclerView(binding.recyclerView)
+        ItemTouchHelper(swipeToDeleteCallback).attachToRecyclerView(binding.recyclerView)
 
 
         binding.tvAddContact.setOnClickListener {
@@ -69,12 +68,11 @@ class ContactsActivity : BaseActivity<ActivityContactsBinding>(ActivityContactsB
     }
 
     private fun undoUserDeletion(view: View, contact: Contact?) {
-        val delMessage = Snackbar.make(
+        Snackbar.make(
             view,
             getString(R.string.contacts_sbRemoved, contact!!.name),
             Snackbar.LENGTH_LONG
-        )
-        delMessage.setAction("Cancel") {
+        ).setAction("Cancel") {
             contactViewModel.addContact(contact)
         }.show()
     }
