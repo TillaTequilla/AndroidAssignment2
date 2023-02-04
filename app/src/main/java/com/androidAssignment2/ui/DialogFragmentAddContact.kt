@@ -49,7 +49,6 @@ class DialogFragmentAddContact : DialogFragment() {
 
     private fun listenerInitialization() {
         binding.run {
-
             ivAddContactChoosePhoto.setOnClickListener {
                 val intent =
                     Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
