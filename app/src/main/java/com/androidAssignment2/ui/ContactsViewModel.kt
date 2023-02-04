@@ -5,7 +5,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import com.androidAssignment2.util.UsersList
 
-class ContactsViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
+class ContactsViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel() {
 
     private val _contactList = savedStateHandle.getLiveData("contacts", UsersList.getUsers())
 
@@ -17,14 +17,19 @@ class ContactsViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
     fun deleteContact(index: Int) {
         _contactList.value = _contactList.value?.toMutableList()?.apply {
             removeAt(index)
+            savedStateHandle["contacts"] = _contactList.value
         }
     }
 
     fun deleteContact(contact: Contact) {
         _contactList.value = _contactList.value?.minus(contact)
+        savedStateHandle["contacts"] = _contactList.value
+
     }
 
     fun addContact(contact: Contact) {
         _contactList.value = _contactList.value?.plus(contact)
+        savedStateHandle["contacts"] = _contactList.value
+
     }
 }
