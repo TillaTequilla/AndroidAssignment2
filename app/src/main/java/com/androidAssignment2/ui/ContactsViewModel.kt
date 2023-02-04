@@ -1,19 +1,16 @@
 package com.androidAssignment2.ui
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import com.androidAssignment2.util.UsersList
 
-class ContactsViewModel : ViewModel() {
+class ContactsViewModel(savedStateHandle: SavedStateHandle) : ViewModel() {
 
-    private val _contactList: MutableLiveData<List<Contact>> = MutableLiveData()
+    private val _contactList = savedStateHandle.getLiveData("contacts", UsersList.getUsers())
 
     val contactList: LiveData<List<Contact>> = _contactList
 
-    init {
-        _contactList.value = UsersList.getUsers()
-    }
 
     fun getListUsers() = _contactList.value
 

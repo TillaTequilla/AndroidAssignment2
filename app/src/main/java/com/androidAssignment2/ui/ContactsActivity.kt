@@ -1,19 +1,21 @@
 package com.androidAssignment2.ui
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.androidAssignment2.adapter.ContactsRecycleViewAdapter
-import com.example.androidAssignment2.databinding.ActivityContactsBinding
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.androidAssignment2.adapter.ContactController
+import com.androidAssignment2.adapter.ContactsRecycleViewAdapter
 import com.androidAssignment2.architecture.BaseActivity
 import com.androidAssignment2.util.SwipeToDeleteCallback
 import com.example.androidAssignment2.R
+import com.example.androidAssignment2.databinding.ActivityContactsBinding
 import com.google.android.material.snackbar.Snackbar
+
 
 class ContactsActivity : BaseActivity<ActivityContactsBinding>(ActivityContactsBinding::inflate),
     ContactController {
@@ -42,6 +44,12 @@ class ContactsActivity : BaseActivity<ActivityContactsBinding>(ActivityContactsB
         binding.tvAddContact.setOnClickListener {
             val dialog = DialogFragmentAddContact()
             dialog.show(supportFragmentManager, "addContact")
+        }
+
+        binding.ivContactBack.setOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
+            startActivity(intent)
         }
 
         contactViewModel.contactList.observe(this) {

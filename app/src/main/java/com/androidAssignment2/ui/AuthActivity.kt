@@ -43,7 +43,6 @@ class AuthActivity : BaseActivity<ActivityAuthBinding>(ActivityAuthBinding::infl
             btnRegister.setOnClickListener {
                 if (cbRememberMe.isChecked) {
                     rememberInformation()
-
                 } else sharedPreferences.edit().clear().apply()
                 if (checkForInput()) {
                     val name: String = getName()
@@ -89,15 +88,16 @@ class AuthActivity : BaseActivity<ActivityAuthBinding>(ActivityAuthBinding::infl
     }
 
     private fun rememberInformation() {
+
         val checked = binding.cbRememberMe.isChecked
         authActivityViewModel.apply {
             putValueToSharedPreferences(
                 Constance.SHARED_PREFERENCES_EMAIL,
-                binding.etEmail.text
+                binding.etEmail.text.toString()
             )
             putValueToSharedPreferences(
                 Constance.SHARED_PREFERENCES_PASSWORD,
-                binding.etPassword.text
+                binding.etPassword.text.toString()
             )
             putValueToSharedPreferences(Constance.SHARED_PREFERENCES_REMEMBER, checked)
         }
