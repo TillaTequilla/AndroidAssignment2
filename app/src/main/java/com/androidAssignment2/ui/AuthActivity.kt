@@ -9,16 +9,13 @@ import com.androidAssignment2.architecture.BaseActivity
 import com.androidAssignment2.util.Constance
 import com.example.androidAssignment2.databinding.ActivityAuthBinding
 import com.androidAssignment2.util.NameParser
+import com.androidAssignment2.util.PreferenceHelper
 import com.example.androidAssignment2.R
 
 class AuthActivity : BaseActivity<ActivityAuthBinding>(ActivityAuthBinding::inflate) {
     private val authActivityViewModel: AuthActivityViewModel by viewModels()
-    private lateinit var sharedPreferences: SharedPreferences
-
     override fun onCreate(savedInstanceState: Bundle?) {
-        authActivityViewModel.sharedPreferences =
-            getSharedPreferences(Constance.SHARED_PREFERENCES_NAME, MODE_PRIVATE)
-        sharedPreferences = authActivityViewModel.sharedPreferences
+        authActivityViewModel.sharedPreferences = PreferenceHelper.init(this)
         super.onCreate(savedInstanceState)
         getPreferencesData()
         listenerInitialization()
@@ -43,7 +40,7 @@ class AuthActivity : BaseActivity<ActivityAuthBinding>(ActivityAuthBinding::infl
             btnRegister.setOnClickListener {
                 if (cbRememberMe.isChecked) {
                     rememberInformation()
-                } else sharedPreferences.edit().clear().apply()
+                } else authActivityViewModel.sharedPreferences.edit().clear().apply()
                 if (checkForInput()) {
                     val name: String = getName()
                     val intent = Intent(this@AuthActivity, MainActivity::class.java)
@@ -65,41 +62,45 @@ class AuthActivity : BaseActivity<ActivityAuthBinding>(ActivityAuthBinding::infl
 
     private fun getPreferencesData() {
         with(binding) {
-            authActivityViewModel.apply {
-                if (
-                    getValueFromSharedPreferences(Constance.SHARED_PREFERENCES_REMEMBER, false)) {
-                    etEmail.setText(
-                        getValueFromSharedPreferences(
-                            Constance.SHARED_PREFERENCES_EMAIL,
-                            ""
-                        )
+            if (
+                PreferenceHelper.getValueFromSharedPreferences(
+                    Constance.SHARED_PREFERENCES_REMEMBER,
+                    false
+                )
+            ) {
+                etEmail.setText(
+                    PreferenceHelper.getValueFromSharedPreferences(
+                        Constance.SHARED_PREFERENCES_EMAIL,
+                        ""
                     )
-                    etPassword.setText(
-                        getValueFromSharedPreferences(
-                            Constance.SHARED_PREFERENCES_PASSWORD,
-                            ""
-                        )
+                )
+                etPassword.setText(
+                    PreferenceHelper.getValueFromSharedPreferences(
+                        Constance.SHARED_PREFERENCES_PASSWORD,
+                        ""
                     )
-                    cbRememberMe.isChecked = true
-                }
-
+                )
+                cbRememberMe.isChecked = true
             }
+
         }
     }
 
     private fun rememberInformation() {
-
         val checked = binding.cbRememberMe.isChecked
         authActivityViewModel.apply {
-            putValueToSharedPreferences(
+            PreferenceHelper.putValueToSharedPreferences(
                 Constance.SHARED_PREFERENCES_EMAIL,
                 binding.etEmail.text.toString()
             )
-            putValueToSharedPreferences(
+            PreferenceHelper.putValueToSharedPreferences(
                 Constance.SHARED_PREFERENCES_PASSWORD,
                 binding.etPassword.text.toString()
             )
-            putValueToSharedPreferences(Constance.SHARED_PREFERENCES_REMEMBER, checked)
+            PreferenceHelper.putValueToSharedPreferences(
+                Constance.SHARED_PREFERENCES_REMEMBER,
+                checked
+            )
         }
 
     }
