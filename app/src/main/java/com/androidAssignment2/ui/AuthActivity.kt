@@ -7,10 +7,10 @@ import androidx.activity.viewModels
 import androidx.core.widget.doAfterTextChanged
 import com.androidAssignment2.architecture.BaseActivity
 import com.androidAssignment2.util.Constance
-import com.example.androidAssignment2.databinding.ActivityAuthBinding
+import com.androidAssignment2.databinding.ActivityAuthBinding
 import com.androidAssignment2.util.NameParser
 import com.androidAssignment2.util.PreferenceHelper
-import com.example.androidAssignment2.R
+import com.androidAssignment2.R
 
 class AuthActivity : BaseActivity<ActivityAuthBinding>(ActivityAuthBinding::inflate) {
     private val authActivityViewModel: AuthActivityViewModel by viewModels()

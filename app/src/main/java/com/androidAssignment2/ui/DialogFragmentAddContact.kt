@@ -13,8 +13,8 @@ import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.DialogFragment
-import com.example.androidAssignment2.databinding.AddContactBinding
-import com.example.androidAssignment2.R
+import com.androidAssignment2.databinding.AddContactBinding
+import com.androidAssignment2.R
 import com.androidAssignment2.extension.setSizePercent
 
 

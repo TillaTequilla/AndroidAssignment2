@@ -9,7 +9,7 @@ import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.view.View
 import androidx.core.content.res.ResourcesCompat
-import com.example.androidAssignment2.R
+import com.androidAssignment2.R
 
 @SuppressLint("Recycle", "UseCompatLoadingForDrawables")
 class GoogleButton @JvmOverloads constructor(

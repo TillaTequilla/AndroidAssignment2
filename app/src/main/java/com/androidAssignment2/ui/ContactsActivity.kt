@@ -12,8 +12,8 @@ import com.androidAssignment2.adapter.ContactController
 import com.androidAssignment2.adapter.ContactsRecycleViewAdapter
 import com.androidAssignment2.architecture.BaseActivity
 import com.androidAssignment2.util.SwipeToDeleteCallback
-import com.example.androidAssignment2.R
-import com.example.androidAssignment2.databinding.ActivityContactsBinding
+import com.androidAssignment2.R
+import com.androidAssignment2.databinding.ActivityContactsBinding
 import com.google.android.material.snackbar.Snackbar
 
 
@@ -47,9 +47,7 @@ class ContactsActivity : BaseActivity<ActivityContactsBinding>(ActivityContactsB
         }
 
         binding.ivContactBack.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
-            startActivity(intent)
+            finish()
         }
 
         contactViewModel.contactList.observe(this) {
