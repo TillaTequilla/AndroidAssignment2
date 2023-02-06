@@ -1,7 +1,6 @@
 package com.androidAssignment2.ui
 
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.core.widget.doAfterTextChanged
