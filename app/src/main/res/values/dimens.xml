@@ -7,6 +7,7 @@
     <dimen name="indent_big">24dp</dimen>
     <dimen name="textSize_normal">14sp</dimen>
     <dimen name="textSize_big">18sp</dimen>
+    <dimen name="textSize_max">24sp</dimen>
 
     <dimen name="authActivity_topGreeting_textSize">24sp</dimen>
     <dimen name="authActivity_email_bias">0.32</dimen>

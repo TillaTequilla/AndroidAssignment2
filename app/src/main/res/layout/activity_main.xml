@@ -139,7 +139,7 @@
             android:text="@string/login_fill_out_go_settings"
             android:textAlignment="center"
             android:textColor="@color/go_to_settings"
-            android:textSize="@dimen/indent_normal"
+            android:textSize="@dimen/textSize_normal"
             app:layout_constraintBottom_toTopOf="@id/btnEditProfile"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
