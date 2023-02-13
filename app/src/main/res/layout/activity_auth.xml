@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/profile_background"
     android:padding="@dimen/indent_normal"
-    tools:context="com.androidAssignment2.ui.AuthActivity">
+    tools:context="com.androidAssignment2.ui.authActivity.AuthActivity">
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvGreetingTop"

@@ -1,4 +1,4 @@
-package com.androidAssignment2.ui
+package com.androidAssignment2.ui.contactsActivity
 
 import android.app.Activity
 import android.content.Intent

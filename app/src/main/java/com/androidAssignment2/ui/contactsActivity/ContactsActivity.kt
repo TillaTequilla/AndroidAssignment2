@@ -1,4 +1,4 @@
-package com.androidAssignment2.ui
+package com.androidAssignment2.ui.contactsActivity
 
 
 import android.os.Bundle
@@ -7,8 +7,8 @@ import androidx.activity.viewModels
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.androidAssignment2.adapter.ContactController
-import com.androidAssignment2.adapter.ContactsRecycleViewAdapter
+import com.androidAssignment2.ui.contactsActivity.adapter.ContactController
+import com.androidAssignment2.ui.contactsActivity.adapter.ContactsRecycleViewAdapter
 import com.androidAssignment2.architecture.BaseActivity
 import com.androidAssignment2.util.SwipeToDeleteCallback
 import com.androidAssignment2.R

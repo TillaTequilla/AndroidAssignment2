@@ -1,4 +1,4 @@
-package com.androidAssignment2.ui
+package com.androidAssignment2.ui.authActivity
 
 import android.content.SharedPreferences
 import androidx.lifecycle.ViewModel

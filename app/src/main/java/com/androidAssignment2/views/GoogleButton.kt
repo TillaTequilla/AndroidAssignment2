@@ -26,6 +26,7 @@ class GoogleButton @JvmOverloads constructor(
         private const val DEFAULT_BUTTON_COLOR = Color.WHITE
         private const val DEFAULT_TEXT = "GOOGLE"
         private const val DEFAULT_ROUNDING = 14F
+        private const val INDENT_TEXT_G_SIGN = 60
     }
 
 
@@ -94,7 +95,7 @@ class GoogleButton @JvmOverloads constructor(
     private fun drawG(canvas: Canvas) {
         icon_size = textSize
         val y: Int = ((height - icon_size) / 2).toInt()
-        val x: Int = ((width - icon_size - textLenght - 60) / 2).toInt()
+        val x: Int = ((width - icon_size - textLenght - INDENT_TEXT_G_SIGN) / 2).toInt()
         googleIcon.setBounds(x, y, (x + icon_size).toInt(), (y + icon_size).toInt())
         googleIcon.draw(canvas)
 

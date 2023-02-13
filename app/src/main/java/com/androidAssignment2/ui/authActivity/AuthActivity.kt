@@ -1,4 +1,4 @@
-package com.androidAssignment2.ui
+package com.androidAssignment2.ui.authActivity
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,6 +10,7 @@ import com.androidAssignment2.databinding.ActivityAuthBinding
 import com.androidAssignment2.util.NameParser
 import com.androidAssignment2.util.PreferenceHelper
 import com.androidAssignment2.R
+import com.androidAssignment2.ui.mainActivity.MainActivity
 
 class AuthActivity : BaseActivity<ActivityAuthBinding>(ActivityAuthBinding::inflate) {
     private val authActivityViewModel: AuthActivityViewModel by viewModels()

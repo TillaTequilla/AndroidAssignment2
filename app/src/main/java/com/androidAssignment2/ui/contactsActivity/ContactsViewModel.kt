@@ -1,4 +1,4 @@
-package com.androidAssignment2.ui
+package com.androidAssignment2.ui.contactsActivity
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.SavedStateHandle
