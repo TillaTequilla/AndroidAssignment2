@@ -30,21 +30,21 @@ class GoogleButton @JvmOverloads constructor(
     }
 
 
-    private var text = DEFAULT_TEXT
+    private var text: String? = DEFAULT_TEXT
     private var buttonColor = DEFAULT_BUTTON_COLOR
     private var googleIcon: Drawable = context.getDrawable(R.drawable.icon_google)!!
     private var font = ResourcesCompat.getFont(context, R.font.semi_bold)
     private var textSize = DEFAULT_TEXT_SIZE
     private val paint: Paint = Paint(Paint.ANTI_ALIAS_FLAG)
-    private var icon_size = DEFAULT_ICON_SIZE
-    private var textLenght: Float = 0F
+    private var iconSize = DEFAULT_ICON_SIZE
+    private var textLength: Float = 0F
     private var edgeRounding = DEFAULT_ROUNDING
 
     init {
         paint.isAntiAlias = true
         if (attrs != null) {
             val ta = context.obtainStyledAttributes(attrs, R.styleable.GoogleButton)
-            text = ta.getString(R.styleable.GoogleButton_text).toString()
+            text = ta.getString(R.styleable.GoogleButton_text) ?: DEFAULT_TEXT
             buttonColor = ta.getColor(R.styleable.GoogleButton_button_color, DEFAULT_BUTTON_COLOR)
             font = ta.getFont(R.styleable.GoogleButton_fontFamily)
             googleIcon = (ta.getDrawable(R.styleable.GoogleButton_icon)
@@ -72,31 +72,27 @@ class GoogleButton @JvmOverloads constructor(
     }
 
     private fun drawText(canvas: Canvas) {
-        val text2 = "GOOGLE"
         paint.apply {
             style = Paint.Style.FILL
             isAntiAlias = true
             typeface = font
             paint.color = Color.BLACK
             textAlignment = TEXT_ALIGNMENT_CENTER
-            println("---")
-            println(textSize)
-            println("---")
         }
         paint.textSize = textSize
         val y = (height - paint.descent() - paint.ascent()) / 2
-        textLenght = paint.measureText(text2)
-        val x = (width - textLenght) / 2.toFloat() + icon_size / 2
+        textLength = paint.measureText(text)
+        val x = (width - textLength) / 2.toFloat() + iconSize / 2
         canvas.drawText(
-            text2, x, y, paint
+            text!!, x, y, paint
         )
     }
 
     private fun drawG(canvas: Canvas) {
-        icon_size = textSize
-        val y: Int = ((height - icon_size) / 2).toInt()
-        val x: Int = ((width - icon_size - textLenght - INDENT_TEXT_G_SIGN) / 2).toInt()
-        googleIcon.setBounds(x, y, (x + icon_size).toInt(), (y + icon_size).toInt())
+        iconSize = textSize
+        val y: Int = ((height - iconSize) / 2).toInt()
+        val x: Int = ((width - iconSize - textLength - INDENT_TEXT_G_SIGN) / 2).toInt()
+        googleIcon.setBounds(x, y, (x + iconSize).toInt(), (y + iconSize).toInt())
         googleIcon.draw(canvas)
 
     }
